@@ -9,6 +9,7 @@
 
 body {
     display: grid;
+    counter-reset: score;
     height: 100vh;
     margin: 0;
     place-items: center;
@@ -125,7 +126,9 @@ body {
     border: 8px solid black;
     border-radius: 40px;
     box-shadow: var(--shadow);
+    /* After */
     overflow: hidden;
+    /* After */
     height: 600px;
     position: relative;
     width: 300px;
@@ -140,6 +143,19 @@ input[type=checkbox] {
     top: 0;
     width: 80px;
     z-index: 2;
+}
+
+input[type=checkbox]:focus {
+    appearance: none;
+    outline: none;
+}
+
+input:checked {
+    counter-increment: score;
+}
+
+.score::after {
+    content: counter(score);
 }
 
 @keyframes bunny {
@@ -171,35 +187,31 @@ input[type=checkbox] {
 }
 
 .layer-1 {
+    /*   background: white; */
     bottom: 0;
     height: 450px;
     position: absolute;
     right: 60px;
     width: 80px;
 
+    /* After 4 */
     animation-name: layer;
     animation-duration: 1s;
     animation-timing-function: ease-in-out;
     animation-iteration-count: infinite;
 }
 
-@keyframes layer {
-    0% {
-        bottom: 0;
-    }
-
-    25% {
-        bottom: -80px;
-    }
-
-    100% {
-        bottom: 0;
-    }
+.layer-1 input[type=checkbox] {
+    /* After 4 */
+    animation-name: bunny;
+    animation-duration: 1s;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
-.layer-1 input[type=checkbox] {}
-
 .layer-2 {
+    /*   background: white; */
+    /* After 3 */
     bottom: 0;
     height: 450px;
     position: absolute;
@@ -207,6 +219,7 @@ input[type=checkbox] {
     width: 80px;
     z-index: 2;
 
+    /* After 4 */
     animation-name: layer;
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;
@@ -214,6 +227,7 @@ input[type=checkbox] {
 }
 
 .layer-2 input[type=checkbox] {
+    /* After 4 */
     animation-name: bunny;
     animation-duration: 1.5s;
     animation-timing-function: ease-in-out;
@@ -222,13 +236,17 @@ input[type=checkbox] {
 
 .layer-3 {
     background: var(--light-brown);
+    /* After */
     border-radius: 20px;
+    /* After */
     box-shadow: var(--shadow);
+    /* After */
     bottom: 0;
     height: 400px;
     left: 0;
     margin: 0 auto;
     overflow: hidden;
+    /* After */
     position: absolute;
     right: 0;
     width: 220px;
@@ -236,6 +254,8 @@ input[type=checkbox] {
 }
 
 .layer-4 {
+    /*   background: white; */
+    /* After 3 */
     bottom: 0;
     height: 350px;
     left: 15px;
@@ -243,6 +263,7 @@ input[type=checkbox] {
     width: 80px;
     z-index: 4;
 
+    /* After 4 */
     animation-name: layer;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
@@ -250,6 +271,7 @@ input[type=checkbox] {
 }
 
 .layer-4 input[type=checkbox] {
+    /* After 4 */
     animation-name: bunny;
     animation-duration: 0.5s;
     animation-timing-function: ease-in-out;
@@ -258,17 +280,23 @@ input[type=checkbox] {
 
 .layer-5 {
     background: var(--light-brown);
+    /* After */
     border-radius: 20px;
+    /* After */
     box-shadow: var(--shadow);
+    /* After */
     bottom: 0;
     height: 300px;
     overflow: hidden;
+    /* After */
     position: absolute;
     width: 200px;
     z-index: 5;
 }
 
 .layer-6 {
+    /*   background: white; */
+    /* After 3 */
     bottom: 0;
     height: 250px;
     position: absolute;
@@ -276,6 +304,7 @@ input[type=checkbox] {
     width: 80px;
     z-index: 6;
 
+    /* After 4 */
     animation-name: layer;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
@@ -283,6 +312,7 @@ input[type=checkbox] {
 }
 
 .layer-6 input[type=checkbox] {
+    /* After 4 */
     animation-name: bunny;
     animation-duration: 2s;
     animation-timing-function: ease-in-out;
@@ -291,11 +321,15 @@ input[type=checkbox] {
 
 .layer-7 {
     background: var(--light-brown);
+    /* After */
     border-radius: 20px;
+    /* After */
     box-shadow: var(--shadow);
+    /* After */
     bottom: 0;
     height: 200px;
     overflow: hidden;
+    /* After */
     position: absolute;
     right: 0;
     width: 150px;
@@ -303,6 +337,7 @@ input[type=checkbox] {
 }
 
 .layer-8 {
+    /*   background: papayawhip; */
     bottom: 0;
     height: 120px;
     left: 0;
@@ -347,6 +382,7 @@ input[type=checkbox] {
 }
 
 .layer-9 {
+    /*   background: white; */
     bottom: 0;
     height: 100px;
     position: absolute;
@@ -376,6 +412,7 @@ input[type=checkbox] {
 }
 
 .layer-10 {
+    /*   background: pink; */
     bottom: 0;
     height: 100px;
     position: absolute;
@@ -403,4 +440,22 @@ input[type=checkbox] {
     right: 0px;
     position: absolute;
     width: 80px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    margin: 45px 0 10px;
+}
+
+.title img {
+    width: 60%;
+}
+
+.score {
+    color: var(--light-brown);
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    margin: 0;
+    text-align: center;
 }
